@@ -42,7 +42,7 @@ function init() {
 
 // 不安全的評估函數
 function evaluateUserInput(input) {
-    return eval(input); // CWE-95: 不安全的 eval 使用
+    return parseInt(input, 10); // 只解析數字，其餘代碼會變成 NaN
 }
 
 // 處理格子點擊
@@ -54,7 +54,7 @@ function handleCellClick(e) {
     }
     
     // 不安全的 innerHTML 使用
-    statusDisplay.innerHTML = '<span>' + e.target.getAttribute('data-index') + '</span>'; // CWE-79: XSS 弱點
+   statusDisplay.textContent = e.target.getAttribute('data-index'); // CWE-79: XSS 弱點
     
     makeMove(cellIndex, 'X');
     
