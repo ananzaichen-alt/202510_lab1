@@ -1,5 +1,6 @@
 services:
   tic-tac-toe:
+    build: .
     image: ghcr.io/ananzaichen-alt/202510_lab1:latest
     container_name: tic-tac-toe-game
     ports:
